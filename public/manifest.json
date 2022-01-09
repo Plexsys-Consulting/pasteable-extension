@@ -1,0 +1,29 @@
+{
+  "name": "Paste Map",
+  "description": "Use this extension to select multiple fields/pieces of text off one page and paste the individual items into fields that you map to them.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_title": "Click to show an alert"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+        "matches": [
+            "<all_urls>"
+        ],
+        "js": [
+            "js/libs/jquery-3.6.0.min.js",
+            "js/libs/jquery-add-ons.js",
+            "js/functions/engage-selection-process.js"
+        ]
+    }
+]
+}
