@@ -1,11 +1,9 @@
-import TopBar from './components/topBar';
-
-import './App.css';
+import TopBar from './components/TopBar';
 
 export default () => {
   return (
-    <div id="app-container">
-      <TopBar text="Pasteable" />
+    <div className='flex flex-col w-full h-full'>
+      <TopBar />
     </div>
   );
 }

@@ -23,6 +23,9 @@
             "js/libs/jquery-3.6.0.min.js",
             "js/libs/jquery-add-ons.js",
             "js/functions/engage-selection-process.js"
+        ],
+        "css": [
+          "BUNDLE_CSS_PATH"
         ]
     }
 ]

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import './index.css';
 
 let existingSideBar = document.getElementById('pasteable-root');
 if (false) {
@@ -8,15 +9,7 @@ if (false) {
 } else {
   let sideBar = document.createElement('div');
   sideBar.setAttribute("id", "pasteable-root");
-  sideBar.setAttribute("style", `
-  width: 20vw;
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(232, 232, 232, 0.7);
-  z-index: 1000000000000;
-`)
+  sideBar.setAttribute("class", `pasteable-root`);
   document.body.appendChild(sideBar);
 
   ReactDOM.render(
