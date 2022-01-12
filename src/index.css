@@ -18,6 +18,6 @@
 }
 
 .pasteable-root {
-    @apply fixed top-0 right-0 bottom-0 w-80 z-[10000000000000000000000000000000000000000]
+    @apply fixed top-0 right-0 bottom-0 w-80
     bg-emerald-50/50 shadow-xl shadow-emerald-900;
 }

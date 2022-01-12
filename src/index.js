@@ -10,6 +10,7 @@ if (false) {
   let sideBar = document.createElement('div');
   sideBar.setAttribute("id", "pasteable-root");
   sideBar.setAttribute("class", `pasteable-root`);
+  sideBar.style.zIndex = "100000000000000000000000000000000000000000";
   document.body.appendChild(sideBar);
 
   ReactDOM.render(
