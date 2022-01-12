@@ -1,3 +1,26 @@
+import $ from 'jquery';
+
+//Add functionality to get element path
+$.fn.getPath = function () {
+    if (this.length != 1) throw 'Requires one element.';
+    var path, node = this;
+    //if (node[0].id) return "#" + node[0].id;
+    while (node.length) {
+        var realNode = node[0],
+            name = realNode.localName;
+        if (!name) break;
+        name = name.toLowerCase();
+        var parent = node.parent();
+        var siblings = parent.children(name);
+        if (siblings.length > 1) {
+            name += ':eq(' + siblings.index(realNode) + ')';
+        }
+        path = name + (path ? '>' + path : '');
+        node = parent;
+    }
+    return path;
+};
+
 const engageElementSelection = () => new Promise(resolve => {
     //Declare variables that will later be used to store a copyMap
     let fields = [];
@@ -19,13 +42,14 @@ const engageElementSelection = () => new Promise(resolve => {
         e.stopPropagation();
 
         let elPath = $(this).getPath();
+        $(elPath).attr('style', 'background: red !important;');
         let elName = prompt(`Did you mean to capture: "${$(elPath).text()}"? If so, what do you want to name the element in this location for later use?`);
         if (elPath && elName && $(elPath).text().length) {
             let obj = { id: Date.now(), elPath, elName, text: $(elPath).text() }
             fields.push(obj);
         }
 
-        if (confirm('Complete selection process?')) {
+        if (window.confirm('Complete selection process?')) {
             $('*').off('mouseenter mouseleave click');
             $('.outline-on-hover').removeClass('outline-on-hover');
             resolve(fields);
@@ -42,4 +66,8 @@ const engageElementSelection = () => new Promise(resolve => {
 
     $('*').off('mouseenter mouseleave click');
     $('.outline-on-hover').removeClass('outline-on-hover'); */
-})
+});
+
+export {
+    engageElementSelection
+};
