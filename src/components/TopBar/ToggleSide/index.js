@@ -5,7 +5,7 @@ export default () => {
     const [side, setSide] = useState('right');
     return (
         <div className='absolute top-3 right-3 text-emerald-200 cursor-pointer' >
-            <FaExchangeAlt onClick={() => {
+            <FaExchangeAlt onClick={e=> {
                 if (side === 'left') {
                     document.getElementById('pasteable-root').style.left = 'unset';
                     setSide('right');
