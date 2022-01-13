@@ -29,6 +29,11 @@ const engageElementSelection = () => new Promise(resolve => {
     //Highlight hovered elements to indicate which element is about to be selected
     $('*').hover(function (e) {
         e.stopPropagation();
+
+        //Ensure not to allow highlight of items within the sidebar
+        if($(this).parents('#pasteable-root').length || $(this).is('#pasteable-root')){
+            return;
+        }
         $('.outline-on-hover').removeClass('outline-on-hover');
         $(this).addClass('outline-on-hover');
     }, function (e) {
@@ -38,6 +43,11 @@ const engageElementSelection = () => new Promise(resolve => {
 
     //Capture the element path|id as well as the nick-name
     $('*').click(function (e) {
+        //Ensure not to allow selection of items within the sidebar
+        if($(this).parents('#pasteable-root').length || $(this).is('#pasteable-root')){
+            return;
+        };
+        
         e.preventDefault();
         e.stopPropagation();
 
@@ -68,6 +78,13 @@ const engageElementSelection = () => new Promise(resolve => {
     $('.outline-on-hover').removeClass('outline-on-hover'); */
 });
 
+const preventBubble = (e, func) => {
+    e.preventDefault();
+    e.stopPropagation();
+    func && func();
+}
+
 export {
-    engageElementSelection
+    engageElementSelection,
+    preventBubble,
 };
