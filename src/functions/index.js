@@ -52,11 +52,11 @@ const engageElementSelection = () => new Promise(resolve => {
         e.stopPropagation();
 
         let elPath = $(this).getPath();
-        $(elPath).attr('style', 'background: red !important;');
-        let elName = prompt(`Did you mean to capture: "${$(elPath).text()}"? If so, what do you want to name the element in this location for later use?`);
+        let elName = prompt(`Do you want to add: "${$(elPath).text()}"? If so, type a nickname for the element location below. This will be referenced later to run automated captures.`);
         if (elPath && elName && $(elPath).text().length) {
             let obj = { id: Date.now(), elPath, elName, text: $(elPath).text() }
             fields.push(obj);
+            $(elPath).attr('style', 'background: #ffff00 !important; color: black;');
         }
 
         if (window.confirm('Complete selection process?')) {

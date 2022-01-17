@@ -4,7 +4,7 @@ import App from './App';
 import './index.css';
 
 let existingSideBar = document.getElementById('pasteable-root');
-if (false) {
+if (false /*CURRENTLY SET TO FALSE FOR LOCAL DEV */) {
   document.getElementById('pasteable-root').remove();
 } else {
   let sideBar = document.createElement('div');

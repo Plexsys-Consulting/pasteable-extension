@@ -1,11 +1,10 @@
-import { useContext } from 'react';
 import { FaPlus, FaLevelUpAlt, FaLevelDownAlt, FaEdit } from 'react-icons/fa';
 import Icon from './Icon';
 import { engageElementSelection } from '../../../functions';
-import { Context } from '../../../contexts';
+import { usePasteableContext } from '../../../contexts';
 
-export default _=> {
-    const [ showView, setShowView ] = useContext(Context);
+export default () => {
+    const [ showView, setShowView ] = usePasteableContext();
     const selectEls = async e => {
         try {
             setShowView('create');
