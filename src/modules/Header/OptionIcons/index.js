@@ -1,7 +1,7 @@
 import { FaPlus, FaLevelUpAlt, FaLevelDownAlt, FaEdit } from 'react-icons/fa';
 import Icon from './Icon';
-import { engageElementSelection } from '../../../functions';
-import { useViewContext } from '../../../contexts/ViewContext';
+import { engageElementSelection } from 'modules/common/functions';
+import { useViewContext } from 'modules/common/contexts/ViewContext';
 
 const selectEls = async () => {
     try {

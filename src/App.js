@@ -1,14 +1,14 @@
-import TopBar from './components/TopBar';
-import SidebarViews from './components/SidebarViews';
-import { preventBubble } from './functions';
-import { ViewContext } from './contexts/ViewContext';
+import Header from 'modules/Header';
+import Body from 'modules/Body';
+import { preventBubble } from 'modules/common/functions';
+import { ViewContext } from 'modules/common/contexts/ViewContext';
 
 const App = () => {
   return (
     <ViewContext>
       <div className='flex flex-col w-full h-full' onClick={e=>preventBubble(e)}>
-        <TopBar />
-        <SidebarViews />
+        <Header />
+        <Body />
       </div>
     </ViewContext>
   );

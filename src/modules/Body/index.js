@@ -1,4 +1,4 @@
-import { useViewContext } from "../../contexts/ViewContext";
+import { useViewContext } from "modules/common/contexts/ViewContext";
 import CreateMap from "./CreateMap";
 import EditMaps from "./EditMaps";
 import RunCopy from "./RunCopy";
