@@ -12,14 +12,42 @@ const selectEls = async () => {
     }
 }
 
+const iconList = [
+    {
+        onClick: setShowView => { setShowView("create"); selectEls() },
+        activeView: "create",
+        iconComponent: <FaPlus />,
+        text: "create copy/paste map"
+    },
+    {
+        onClick: setShowView => setShowView("run-copy"),
+        activeView: "run-copy",
+        iconComponent: <FaLevelUpAlt />,
+        text: "run copy"
+    },
+    {
+        onClick: setShowView => setShowView("run-paste"),
+        activeView: "run-paste",
+        iconComponent: <FaLevelDownAlt />,
+        text: "run paste"
+    }, {
+        onClick: setShowView => setShowView("edit"),
+        activeView: "edit",
+        iconComponent: <FaEdit />,
+        text: "edit copy/paste maps"
+    },
+]
+
 const OptionIcons = () => {
-    const [ showView, setShowView ] = useViewContext();
+    const [showView, setShowView] = useViewContext();
     return (
         <div className='flex flex-row justify-left'>
-            <Icon onClick={() => {setShowView('create'); selectEls()}} className={showView === "create" ? "bg-emerald-200 text-emerald-900 rounded-b-lg" : ''} icon={<FaPlus />} text="create copy/paste map" />
-            <Icon onClick={() => setShowView('run-copy')} className={showView === "run-copy" ? "bg-emerald-200 text-emerald-900 rounded-b-lg" : ''} icon={<FaLevelUpAlt />} text="run copy" />
-            <Icon onClick={() => setShowView('run-paste')} className={showView === "run-paste" ? "bg-emerald-200 text-emerald-900 rounded-b-lg" : ''} icon={<FaLevelDownAlt />} text="run paste" />
-            <Icon onClick={() => setShowView('edit')} className={showView === "edit" ? "bg-emerald-200 text-emerald-900 rounded-b-lg" : ''} icon={<FaEdit />} text="edit copy/paste maps" />
+            {iconList.map(({ onClick, activeView, iconComponent, text }) => <Icon
+                onClick={() => onClick(setShowView)}
+                className={showView === activeView ? "bg-emerald-200 text-emerald-900 rounded-b-lg" : ""}
+                icon={iconComponent}
+                text={text}
+            />)}
         </div>
     )
 };
