@@ -2,11 +2,7 @@ const Icon = ({
     icon, 
     text = "interact",
     className = '', 
-    onClick = e => {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log("didn't set the onClick function... oops");
-    }
+    onClick = () => console.log("didn't set the onClick function... oops")
 }) => (
     <div className={`icon group ${className}`} onClick={onClick}>
         {icon}
