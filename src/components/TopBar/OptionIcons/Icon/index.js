@@ -1,4 +1,4 @@
-export default ({ 
+const Icon = ({ 
     icon, 
     text = "interact",
     className = '', 
@@ -14,4 +14,6 @@ export default ({
             {text}
         </span>
     </div>
-)
+);
+
+export default Icon;

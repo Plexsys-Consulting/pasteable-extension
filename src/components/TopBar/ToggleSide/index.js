@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaExchangeAlt } from "react-icons/fa";
 
-export default () => {
+const ToggleSide = () => {
     const [side, setSide] = useState('right');
     return (
         <div className='absolute top-3 right-3 text-emerald-200 cursor-pointer' >
@@ -18,4 +18,6 @@ export default () => {
             }} />
         </div>
     )
-}
+};
+
+export default ToggleSide;

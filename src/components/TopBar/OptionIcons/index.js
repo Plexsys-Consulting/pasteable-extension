@@ -1,10 +1,10 @@
 import { FaPlus, FaLevelUpAlt, FaLevelDownAlt, FaEdit } from 'react-icons/fa';
 import Icon from './Icon';
 import { engageElementSelection } from '../../../functions';
-import { usePasteableContext } from '../../../contexts';
+import { useViewContext } from '../../../contexts/ViewContext';
 
-export default () => {
-    const [ showView, setShowView ] = usePasteableContext();
+const OptionIcons = () => {
+    const [ showView, setShowView ] = useViewContext();
     const selectEls = async e => {
         try {
             setShowView('create');
@@ -22,4 +22,6 @@ export default () => {
             <Icon onClick={() => setShowView('edit')} className={showView === "edit" ? "bg-emerald-200 text-emerald-900 rounded-b-lg" : ''} icon={<FaEdit />} text="edit copy/paste maps" />
         </div>
     )
-}
+};
+
+export default OptionIcons;

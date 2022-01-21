@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default () => {
+const CreateMap = () => {
     const [selected, setSelected] = useState("second");
     return (
         <div className="p-2">
@@ -19,4 +19,6 @@ export default () => {
             </select>
         </div>
     )
-}
+};
+
+export default CreateMap;
