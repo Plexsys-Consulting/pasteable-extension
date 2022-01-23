@@ -15,9 +15,26 @@
             text-white bg-emerald-900
             transition-all duration-100 origin-bottom scale-0; 
     }
+
+    .primary-button {
+        @apply p-1 my-1 rounded-md
+        bg-emerald-600 text-white
+    }
 }
 
 .pasteable-root {
     @apply fixed top-0 right-0 bottom-0 w-80
     bg-emerald-50/50 shadow-xl shadow-emerald-900;
+}
+
+*::-webkit-scrollbar {
+    @apply w-1;
+}
+
+*::-webkit-scrollbar-track {
+    @apply bg-emerald-200;
+}
+
+*::-webkit-scrollbar-thumb {
+    @apply bg-emerald-600 rounded-sm;
 }
