@@ -1,40 +1,50 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaSave } from 'react-icons/fa';
-import { MapContext } from 'modules/common/contexts/MapContext';
+import { useMapContext } from 'modules/common/contexts/MapContext';
 import Select from 'modules/common/components/Select';
 import Button from 'modules/common/components/Button';
 import DisplaySelections from './DisplaySelections';
-import { selectElements } from 'modules/common/functions';
+import { selectElement } from 'modules/common/functions';
 
 const CreateMap = () => {
-    const [selected, setSelected] = useState("copy");
+    const [maps, setMaps] = useMapContext();
+    const [copyPaste, setCopyPaste] = useState("copy");
+    const [newMap, setNewMap] = useState({id: Date.now(), name: "new copy map", elements: []});
+    
+    useEffect(() => {
+        (async() => {
+            try {
+                const newMapElements = newMap.elements;
+                const appendedElementArr = await selectElement(newMapElements);
+                setNewMap({...newMap, elements: [...appendedElementArr]});
+            } catch (error) {
+                console.error(error)
+            }
+        })()
+    }, [newMap])
     return (
-        <MapContext>
-            <div className="p-2">
-                <Select
-                    value={selected}
-                    onChange={e => setSelected(e.target.value)}
-                    options={[
-                        {
-                            value: "copy",
-                            text: "create copy map"
-                        },
-                        {
-                            value: "paste",
-                            text: "create paste map"
-                        }
-                    ]}
-                />
-                <DisplaySelections>
-                    click elements in the page to add them to the {`${selected}`} map
-                </DisplaySelections>
-                <Button
-                    className="sticky bottom-3 w-full"
-                    icon={<FaSave className="inline mx-1 w-4" />}
-                    text={`save ${selected} map`}
-                />
-            </div>
-        </MapContext>
+        <div className="p-2">
+            <Select
+                value={copyPaste}
+                onChange={e => setCopyPaste(e.target.value)}
+                options={[
+                    {
+                        value: "copy",
+                        text: "create copy map"
+                    },
+                    {
+                        value: "paste",
+                        text: "create paste map"
+                    }
+                ]}
+            />
+            <DisplaySelections elements={newMap.elements} copyPaste={copyPaste} />
+            <Button
+                className="sticky bottom-3 w-full"
+                icon={<FaSave className="inline mx-1 w-4" />}
+                text={`save ${copyPaste} map`}
+            />
+        </div>
     )
 };
 
