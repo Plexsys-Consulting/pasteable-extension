@@ -27,6 +27,20 @@
     bg-emerald-50/50 shadow-xl shadow-emerald-900;
 }
 
+.marked {
+    @apply cursor-pointer
+    bg-emerald-200 text-emerald-900;
+}
+
+.selected-element {
+    @apply py-0.5 cursor-text
+    bg-emerald-200 text-emerald-900;
+}
+
+.highlighted {
+    @apply shadow-lg p-5 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
+}
+
 *::-webkit-scrollbar {
     @apply w-1;
 }
