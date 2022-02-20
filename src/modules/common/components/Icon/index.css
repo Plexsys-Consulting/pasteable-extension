@@ -1,0 +1,15 @@
+@tailwind components;
+
+@layer components {
+    .icon-tooltip-container {
+        @apply flex items-center justify-center relative p-1
+            text-xl;
+    }
+
+    .icon-tooltip {
+        @apply scale-0 absolute p-2 py-1 rounded-sm whitespace-nowrap
+            bg-black text-white text-xs font-bold
+            transition-all duration-100;
+    }
+}
+
