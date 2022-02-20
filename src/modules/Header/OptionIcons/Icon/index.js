@@ -4,9 +4,9 @@ const Icon = ({
     className = '', 
     onClick = () => console.log("didn't set the onClick function... oops")
 }) => (
-    <div className={`icon group ${className}`} onClick={onClick}>
+    <div className={`header-icon group ${className}`} onClick={onClick}>
         {icon}
-        <span className="icon-tooltip group-hover:scale-100">
+        <span className="header-icon-tooltip group-hover:scale-100">
             {text}
         </span>
     </div>

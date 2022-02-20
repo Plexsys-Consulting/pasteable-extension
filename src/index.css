@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 @layer components {
-    .icon {
+    .header-icon {
         @apply flex items-center justify-center h-10 w-10 
             bg-emerald-600 text-white shadow-emerald-900 shadow-sm cursor-pointer
             hover:bg-emerald-200 hover:text-emerald-900 hover:rounded-b-lg
             transition-all duration-300;
     }
 
-    .icon-tooltip {
+    .header-icon-tooltip {
         @apply absolute w-auto p-2 py-1 min-w-max top-11 rounded-sm shadow-md text-xs font-bold
             text-white bg-emerald-900
             transition-all duration-100 origin-bottom scale-0; 
