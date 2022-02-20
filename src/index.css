@@ -38,7 +38,7 @@
 }
 
 .highlighted {
-    @apply shadow-lg p-5 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
+    @apply shadow-lg p-5 z-[2147483647];
 }
 
 *::-webkit-scrollbar {
